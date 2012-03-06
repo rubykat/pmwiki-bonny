@@ -1,0 +1,200 @@
+﻿>>recipeinfo<<
+Summary: {$Description}
+Version: 0.06
+Status: beta
+Prerequisites: pmwiki-2.2beta, pmwiki-2.1.27
+Maintainer: [[~Kathryn Andersen]]
+Categories: [[!Skins]]
+Download: Attach:bonny.zip
+Discussion: [[{$Name}-Talk]]
+>><< 
+
+(:description Bonny is a fully CSS-driven skin, 2 or 3-column layout, with variations in layout and appearance, and optional CMS mode.:){$Description}
+*[[#Features|Features]]
+*[[#Layout|Layout]]
+*[[#Config|Configuration Variables]]
+(:if enabled BonnyStyleSet:)
+*[[#TryStyle|Try the Style Options]]
+(:ifend:)
+*[[#Examples|Examples]]
+*[[#Installation|Installation]]
+*[[#History|Revision History]]
+
+!!Features[[#Features]]
+* Two or three column [[#Layout|layout]] with full-width header and footer.
+* Fully CSS-driven (no tables).
+* Zoom support (fonts and column widths in ems).
+* Differing font and colour-schemes ([[#Themes|themes]]) which can be set by config or cookie.
+* Optional [[#CMSMode|CMS mode]] which hides wiki-specific things (such as PageActions) from non-logged in users.
+* Can hide the Search links by setting a variable in local/config.php (useful if you are using your own search engine rather than the built-in one).
+* Optional [[#MenuBar|Menu Bar]] (in addition to PageActions bar).
+* [[#BreadCrumb|BreadCrumb]] trail.
+* Uses [[Cluster]]'s $ClusterSideBar, $ClusterRightBar and $BreadCrumb page-variables if they exist.
+* Wiki actions as buttons at both top and bottom of the page.
+* Page variables $SkinName and $SkinVersion.
+* Nifty little icons for external links.
+* Ability to change the url for the logo link.
+
+!!Layout[[#Layout]]
+
+There is a choice of layouts.  One can set the layout by setting $BonnyLayout in local/config.php (see [[#Config|Configuration Variables]] below).
+One can also set it on a per-user basis via parameters and cookies.
+
+Options:
+* roomy (two-column, margins around elements showing a contrasting background)
+* snug (two-column, no margins around elements)
+* roomy_right (two-column, sidebar on right)
+* snug_right (two-column, sidebar on right)
+* trio (three columns: SideBar and RightBar; no margins around elements)
+* roomy_trio (as with trio, but with margins around elements and contrasting background)
+
+!!!MenuBar[[#MenuBar]]
+
+This skin has an optional menu-bar in the header (in addition to the wiki actions),
+which is defined in {$SiteGroup}.MenuBar (or [={$Group}.MenuBar=]).
+
+The menu-bar is only displayed if $BonnyMenuBar is true (see [[#ConVar|Config Variables]] below).
+
+!!!BreadCrumb[[#BreadCrumb]]
+
+The header section of the page includes a breadcrumb trail,
+which is defined in {$SiteGroup}.BreadCrumb (or [={$Group}.BreadCrumb=]).
+
+The default version displays\\
+{$DefaultGroup} > Group > Page
+
+If [[Cluster]] is installed, then it will use Cluster's $BreadCrumb variable
+in preference, showing\\\
+{$DefaultGroup} > [={*$BreadCrumb}=]\\\
+instead.
+
+!!!SideBar[[#SideBar]]
+
+The left hand column holds the side bar for the main site navigation links. 
+*The contents are taken from [[{$SiteGroup}.SideBar]] or any Group.SideBar page.
+*Turn off on a page with markup [@(:noleft:)@].
+*If [[Cluster]] is installed, then it will use Cluster's $ClusterSideBar variable in preference.
+
+!!!RightBar[[#RightBar]]
+
+If one selects the 'trio' or 'roomy_trio' layout, this gives a three-column layout; the third column is called the "right bar".
+
+*The contents are taken from [[{$SiteGroup}.RightBar]] or any Group.RightBar page.
+*Turn off on a page with markup [@(:noright:)@].
+*If [[Cluster]] is installed, then it will use Cluster's $ClusterRightBar variable in preference.
+
+!!Themes[[#Themes]]
+
+There is a choice of themes.  A theme defines a colour scheme, background and fonts for a page.
+One can set the theme by setting $BonnyTheme in local/config.php (see [[#Config|Configuration Variables]] below).
+One can also set it on a per-user basis via parameters and cookies.
+
+Options:
+* gblue (Grey-Blue)
+* iron (Greys; based on the colour scheme for the [[A Bit Modern]] skin)
+* matrix (computer green)
+* silver (Silver-Grey)
+* team (Red, Black, White, like many sports teams)
+* tricolore (Blue, White, Red, as in the French Tricolore)
+* turk (Turquoise and blue)
+* vioblue (Violet-Blue)
+
+!!![[#OwnThemes]]Installing Your Own Themes
+
+If you understand CSS, you can create your own theme files.  Bonny will
+automatically detect additional themes if they are installed.
+
+# Create a theme_''name''.css file.  The ''name'' is the name of the theme.
+  Take a look at some of the existing theme_*.css files for examples to start from.
+# Put the theme_''name''.css file into the pub/skins/bonny/css directory.
+  That is where Bonny looks for themes.
+# If you have images that go with the theme, put them in the pub/skins/bonny/images directory.
+# That's it.  You have a new theme.  To use the theme, set it in the usual way, using ''name'' as the name of the theme.
+
+However, I will not debug your themes for you.
+
+!!CMS Mode[[#CMSMode]]
+
+What is CMS mode?  CMS stands for "Content Management System"; the idea is to make PmWiki work like a content management system by hiding the things that reveal that it is a Wiki.
+When CMS mode is turned on, then various things (such as PageActions and RecentChanges) are hidden from viewers if they are not logged in.
+(See $BonnyCMS in [[#Config|Configuration Variables]] below.)
+
+The PageActionsCMS page will be used (if it exists) rather than the PageActions page; but it includes the PageActions page inside it, so you can use your usual PageActions -- the PageActionsCMS page simply takes into account whether BonnyCMS is enabled, and whether the user has logged in.
+
+You can also hide the Search links by setting $BonnyIncludeSearch to 0 in local/config.php.
+When would one wish to disable it?  When one is using one's
+own search, and doesn't want to use PmWiki's search; other templates require
+one to remove the search links by editing the template; with this skin you only
+have to set a config variable.
+Also note, however, that you can change the format of the searchbox by setting the $SearchBoxFmt variable.
+
+!!Configuration Variables[[#Config]]
+
+These can be set in your local/config.php file.
+
+|| border="1"
+||'''Name'''||'''Description'''||'''Example'''||
+||$BonnyTheme||which theme to use (see [[#Themes|Themes]])||[@$BonnyTheme = 'silver';@]||
+||$BonnyLayout||which layout variation to use (see [[#Layout|Layout]])||[@$BonnyLayout = 'roomy';@]||
+||$BonnyStyleSet||disable/enable style options to be set via cookie. (Enabled by default) Currently (:if enabled BonnyStyleSet:)enabled(:if !enabled BonnyStyleSet:)disabled(:ifend:).||[@$BonnyStyleSet = 1;@]||
+||$ThemeCookieExpires||this is normally set to be one year from now; if you want it to expire at the end of the session, set it to 0.||[@$ThemeCookieExpires = 0;@]||
+||$LayoutCookieExpires||this is normally set to be one year from now; if you want it to expire at the end of the session, set it to 0.||[@$LayoutCookieExpires = 0;@]||
+||$BonnyCMS||enable CMS-like behaviour to hide page actions from non-logged in users, and make the login link hard to see until you hover your mouse over it. Currently (:if enabled BonnyCMS:)enabled(:if !enabled BonnyCMS:)disabled(:ifend:).||[@$BonnyCMS = 1;@]||
+||$BonnyCMSHover||if $BonnyCMS is also true, then use CSS :hover settings to hide the login link even more deeply (the only thing showing will be a '.' until you hover your mouse over it, which then displays the Login link); but this doesn't work with an IE browser, so it is disabled by default. Currently (:if enabled BonnyCMSHover:)enabled(:if !enabled BonnyCMSHover:)disabled(:ifend:).||[@$BonnyCMSHover = 1;@]||
+||$BonnyMenuBar||enable the [[#MenuBar|MenuBar]].  The default MenuBar displays all the groups in the wiki; since this may be horribly large on some wikis, and manageably small on others, it is disabled by default.  If you want to display the menubar, then set this to 1.  If you want your menubar to have other content, then edit your own version of it, and set $BonnyMenuBar to 1.  Currently (:if enabled BonnyMenuBar:)enabled(:if !enabled BonnyMenuBar:)disabled(:ifend:).||[@$BonnyMenuBar = 1;@]||
+||$BonnyIncludeSearch||disable/enable inclusion of the searchbox in the sidebar and the search link in the footer. (Enabled by default). This is useful if you are using your own search engine rather than the built-in one.  Currently (:if enabled BonnyIncludeSearch:)enabled(:if !enabled BonnyIncludeSearch:)disabled(:ifend:).||[@#BonnyIncludeSearch = 0;@]||
+||$BonnyLogoLink||set this to the URL you want to be used in the logo link.  If it isn't set, it will use $ScriptUrl as per usual.  This is useful for CMS-flavoured sites where you have the wiki as part of the site, and you want the logo URL to link to the top of the site rather than the wiki part of the site. Note: if this doesn't work, try adding @@global $BonnyLogoLink;@@ when you set it.||@@$BonnyLogoLink = [='http://www.example.com/'=];@@||
+
+(:if enabled BonnyStyleSet:)
+!!Try the Style Options[[#TryStyle]]
+Try out {$SkinName} skin (version {$SkinVersion}).
+There are two style options: layout and theme.
+The layout options determine the layout variations.  The theme options determine
+what colour and font "theme" is shown.
+
+Try on this page:
+* Layouts
+** [[{$FullName}?bonny_layout=roomy|roomy]]
+** [[{$FullName}?bonny_layout=snug|snug]]
+** [[{$FullName}?bonny_layout=roomy_right|roomy_right]]
+** [[{$FullName}?bonny_layout=snug_right|snug_right]]
+** [[{$FullName}?bonny_layout=trio|trio]] (three-column)
+** [[{$FullName}?bonny_layout=roomy_trio|roomy_trio]] (three-column)
+* Themes
+** [[{$FullName}?bonny_theme=gblue|gblue]] Grey-Blue
+** [[{$FullName}?bonny_theme=iron|iron]] (Greys)
+** [[{$FullName}?bonny_theme=matrix|matrix]] (computer greens)
+** [[{$FullName}?bonny_theme=silver|silver]] (Silver-Grey)
+** [[{$FullName}?bonny_theme=team|team]] (Red, Black, White)
+** [[{$FullName}?bonny_theme=tricolore|tricolore]] (Blue, White, Red)
+** [[{$FullName}?bonny_theme=turk|turk]] Turquoise
+** [[{$FullName}?bonny_theme=vioblue|vioblue]] Violet-Blue
+
+(:ifend:)
+!!Examples[[#Examples]]
+
+Some examples of this skin (running in CMS mode) can be seen at
+*http://www.katspace.org/Links/WebDesignAndTips
+*http://www.katspace.org/Computers/
+*http://www.katspace.org/Fiction/
+
+!!Installation [[#Installation]]
+# Download Attach:bonny.zip
+# Unzip the file; it will make a directory called bonny-{$SkinVersion}
+# Move the directory into your skins directory (usually pmwiki/pub/skins), renaming it to just 'bonny'.  If you have made custom themes, don't forget to save them and re-install them (or just copy the contents of the bonny-{$SkinVersion} directory into the existing pmwiki/pub/skins/bonny directory).
+# Set $Skin in your local/config.php file:\\
+  [@$Skin = 'bonny';@]
+# Optionally configure other settings (look in [[Site.Bonny-Configure]]).
+
+!!Revision History [[#History]]
+* 2007-06-17 Version 0.06 Fixes for Konqueror.
+* 2007-05-08 Version 0.05 Make it easier to install own custom themes.
+* 2007-03-25 Version 0.04 Quick release to reflect changes in [[Cluster]].
+* 2007-03-18 Version 0.03 Fixes for IE; added "team" and "tricolore" themes.
+* 2007-03-16 Version 0.01
+
+!!Contributors
+
+!!Comments
+See Discussion at [[{$Name}-Talk]].
+

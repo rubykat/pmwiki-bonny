@@ -1,0 +1,375 @@
+/***********************************************************************
+** Common layout
+**
+**  Copyright 2006 Kathryn Andersen
+**  This file is part of the Bonny skin for PmWiki; you can redistribute it
+**  and/or modify it under the terms of the GNU General Public License as
+**  published by the Free Software Foundation; either version 2 of the
+**  License, or (at your option) any later version.
+***********************************************************************/
+
+/* ----------------------------------------------------------------*/
+/* overall layout: three sections of the page
+   - header
+   - middle
+   - footer
+  In the header, we have the logo, the breadcrumb and the bar-menu
+  In the middle section, we have two columns:
+   - main (main_content contains the main page content)
+   - sidebar (contains side-menu)
+     The sidebar can be on the LEFT or on the RIGHT.
+*/
+/* common structure */
+#wikihead {
+	/* put overflow hidden to force the floating elements to be included */
+	overflow: hidden;
+}
+
+#wikimid {
+	background-color: white;
+	margin: 0;
+}
+#wikibody {
+	background-color: white;
+	width: 100%;
+}
+#wikileft, #wikiright {
+	background-color: #cccccc;
+	width: 13em;
+}
+#wikifoot {
+	overflow: hidden;
+}
+
+/* ----------------------------------------------------------------*/
+/* LEFT */
+body.left {
+	padding:0 0 0 12em;
+}
+body.left #wikimid{
+	float:left;
+	width:100%;	
+	border-left:12em solid #cccccc;
+	margin-left:-12em;
+	display:inline; /* So IE plays nice */
+}
+body.left #wikileft{
+	float:left;
+	width:12em;
+	margin-left:-12em;
+	position:relative;
+}
+body.left #wikibody{
+	float:left;
+	width:100%;
+	margin-right:-100%;
+}
+body.left #wikihead, body.left #wikifoot{
+	margin-left:-12em;
+	clear:both;
+}
+
+/* ----------------------------------------------------------------*/
+/* RIGHT */
+body.right {
+	padding:0 12em 0 0;
+}
+body.right #wikimid{
+	float:left;
+	width:100%;	
+	border-right:12em solid #cccccc;
+	margin-right:-12em;
+	display:inline; /* So IE plays nice */
+}
+body.right #wikileft{
+	float:right;
+	width:12em;
+	margin-right:-12em;
+	position:relative;
+}
+body.right #wikibody{
+	float:left;
+	width:100%;
+	margin-right:-100%;
+}
+body.right #wikihead, body.right #wikifoot{
+	margin-right:-12em;
+	clear:both;
+}
+
+/* ----------------------------------------------------------------*/
+/* TRIO */
+body.trio {
+	padding:0 12em 0 12em;
+}
+body.trio #wikimid{
+	float:left;
+	width:100%;	
+	border-left:12em solid #cccccc;
+	border-right:12em solid #cccccc;
+	margin-left:-12em;
+	margin-right:-12em;
+	display:inline; /* So IE plays nice */
+}
+body.trio #wikileft{
+	float:left;
+	width:12em;
+	margin-left:-12em;
+	position:relative;
+}
+body.trio #wikibody{
+	float:left;
+	width:100%;
+	margin-right:-100%;
+}
+body.trio #wikiright{
+	float:right;
+	width:12em;
+	margin-right:-12em;
+	position:relative;
+}
+body.trio #wikihead, body.trio #wikifoot{
+	margin-left:-12em;
+	margin-right:-12em;
+	clear:both;
+}
+
+/* ----------------------------------------------------------------*/
+/* Smaller Things */
+
+#wikileft p, #wikileft ul,
+#wikiright p, #wikiright ul {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 0.9em;
+}
+#wikihead p, #wikifoot p {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+#wikibody, #wikimid {
+	background: transparent;
+}
+
+h1 { font-size: 1.8em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.3em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1.1em; }
+
+/*=============================*/
+/* breadcrumb */
+#breadcrumb {
+	font-size: 0.8em;
+	padding-left: 5px;
+	padding-bottom: 5px;
+}
+#wikilogo {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+/*=============================*/
+/* Menu-bar */
+/* This menu is made into a bar by floating the list items.
+ * The items are made to look like buttons with CSS.
+ */
+#menubar {
+	width:100%;
+	font-size: 0.8em;
+	font-family: verdana, helvetica, sans;
+}
+/* hide the createlink link in the menubar */
+#menubar a.createlink {
+	display: none;
+}
+
+#menubar ul {
+	margin:0;
+	padding: 0;
+	list-style:none;
+}
+#menubar li {
+	float:left;
+	margin:0;
+	padding:0;
+	border-bottom: 2px solid black;
+}
+#menubar a, #menubar b.selflink, #menubar span.selflink strong {
+	display: block;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-style: solid;
+	border-width: 1px;
+	border-bottom:none;
+	text-decoration: none;
+	margin-top: 5px;
+	margin-left: 2px;
+} 
+#menubar a:hover {
+	text-decoration: underline;
+}
+#menubar b.selflink, #menubar span.selflink strong {
+	font-weight: normal;
+	font-style: italic;
+}
+#menubar .current a {
+	font-weight: normal;
+}
+/*=============================*/
+/* wikicmds */
+.wikicmds {
+	font-size: 0.8em;
+	font-family: verdana, helvetica, sans;
+	z-index: 3;
+}
+#wikihead .wikicmds {
+	float: right;
+	margin-right: 0.5em;
+}
+/* hide the createlink link in the wikicmds */
+.wikicmds a.createlink {
+	display: none;
+}
+
+div.wikicmds ul {
+	margin:0;
+	padding: 0;
+	list-style:none;
+}
+div.wikicmds .loginhover ul {
+	display: none;
+}
+div.wikicmds:hover .loginhover ul {
+	display: block;
+}
+
+div.wikicmds li {
+	float:left;
+	margin:0;
+	padding:0;
+}
+div.wikicmds div.vspace {
+	margin: 0;
+}
+div.wikicmds a, div.wikicmds b.selflink {
+	display: block;
+	padding-left: 0.75em;
+	padding-right: 0.75em;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-style: outset;
+	border-width: 2px;
+	text-decoration: none;
+	margin-left: 5px;
+} 
+
+div.wikicmds b.selflink {
+	font-weight: normal;
+	font-style: italic;
+	border-style: inset;
+	color: black;
+} 
+
+div.wikicmds a:hover {
+	text-decoration: underline;
+}
+
+div.wikicmds a:active {
+	border-style: inset;
+}
+
+/*=============================*/
+/* footer */
+#wikifoot div {
+	margin: 0.25em;
+	font-size: 0.8em;
+	margin-left: 0.5em;
+}
+#wikifoot .footnav a {
+	border-left: solid 1px;
+	padding-left: 5px;
+	border-right: solid 1px;
+	padding-right: 5px;
+}
+/*=============================*/
+/* other looks */
+#wikileft, #wikiright { line-height: 1.3em; }
+#breadcrumb b.selflink,
+#wikileft b.selflink,
+#wikiright b.selflink,
+#wikibody b.selflink {
+	border-bottom: none;
+}
+#wikileft a, #wikiright a { text-decoration:none; }
+#wikileft a:hover, #wikiright a:hover { text-decoration:underline; }
+#wikileft .vspace, #wikiright .vspace { margin-top:0.5em; }
+#wikitext .vspace { margin-top:0.5em; }
+#wikileft p, #wikileft form,
+#wikiright p, #wikiright form {
+	margin-left: 0.5em;
+	margin-top: 0.5em;
+}
+#wikileft .searchbox {
+	width: 10em;
+}
+#wikileft form, #wikiright form {
+	margin-bottom: 0.5em;
+}
+#wikileft ul, #wikiright ul {
+	list-style-type: none;
+	padding: 0;
+	margin:0;
+	margin-bottom: 0.5em;
+}
+#wikileft .sidebar, #wikiright .sidebar {
+	margin-top: 0.5em;
+}
+#wikileft .sidebar .indent ul,
+#wikiright .sidebar .indent ul {
+	list-style-position: inside;
+	margin-left: -40px; 
+}
+#wikileft .sidebar ul ul,
+#wikiright .sidebar ul ul {
+	list-style-position: inside;
+	margin-left: -0.5em;
+	margin-bottom: 0;
+}
+#wikileft li, #wikiright li {
+	padding-left: 1em;
+	padding-right: 0.5em;
+}
+#wikitext a.externallink {
+  background: url(../images/external.png) center right no-repeat;
+  padding-right: 13px;
+}
+
+.sidehead {
+  font-size:1.1em; font-weight:bold; font-style:normal; 
+}
+.sidehead a 
+{ font-weight:bold; font-style:normal; }
+
+.smaller {
+	font-size: 0.9em;
+}
+
+/* These affect the printed appearance of the web view (not the separate
+** print view) of pages.  The sidebar and action links aren't printed. */
+@media print {
+  body { width:auto; margin:0px; padding:0.5em; }
+  #wikihead, #wikileft, #wikiright, .wikicmds, .footnav { display:none; }
+  #wikibody {
+    position: static;
+    left: 0;
+  }
+}
+
+/*================== Special =============================*/
+
+#wikiedit form input { margin:5px 0 }
+#wikiedit form textarea { width: 98%; margin:5px 0 }
+.wikimessage { color:red !important }

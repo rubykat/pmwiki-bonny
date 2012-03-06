@@ -1,0 +1,105 @@
+/* Theme for Bonny: iron -- based on A Bit Modern */
+#wikihead,
+#wikifoot {
+	color: white;
+	border-color: black;
+	background: #808080 url(../images/iron1.jpg);
+}
+body.roomy #wikititle {
+	color: #003300;
+	background: white;
+}
+
+body,
+body.snug #wikititle,
+#wikitext {
+	color: #333333;
+	background: white;
+}
+
+#wikileft, #wikiright {
+	color: white;
+	background: #5c5c5c;
+}
+body.snug #wikimid,
+body.roomy #wikimid {
+	border-color: #5c5c5c;
+}
+
+body.roomy {
+	color: white;
+	background: #92847b;
+}
+
+/*------------------------------------------------*/
+/* links etc */
+a:link {
+	color: #6799b1;
+	background: transparent;
+}
+a:visited {
+	color: #838f96;
+	background: transparent;
+}
+#wikihead a:link,
+#wikifoot a:link,
+#wikileft a:link,
+#wikiright a:link {
+	color: #eee;
+}
+#wikihead a:visited,
+#wikifoot a:visited,
+#wikileft a:visited,
+#wikiright a:visited {
+	color: #f2cda9;
+}
+
+#menubar a, #menubar b {
+	color: #eee;
+	border-color: black;
+	background: #746b67 url(../images/iron2.jpg);
+}
+#menubar li {
+	border-color: #666666;
+}
+#menubar b.selflink,
+#menubar span.selflink strong,
+#menubar .current a {
+	background: #746b67;
+	color: white;
+}
+.wikicmds .loginhover {
+	background: transparent;
+	color: white;
+}
+#wikihead .wikicmds .login a,
+#wikifoot .wikicmds .login a {
+	border: none;
+	background: transparent;
+	color: #808080;
+}
+#wikihead .wikicmds .login a:hover,
+#wikifoot .wikicmds .login a:hover {
+	border: white 2px solid;
+	color: #eee;
+	background: #333333;
+}
+#wikibody b.selflink {
+	color: black;
+}
+#breadcrumb b.selflink,
+#wikileft b.selflink,
+#wikiright b.selflink {
+	color: white;
+}
+
+.sidebar .indent ul, .sidebar ul ul,
+.sidebar dl ul {
+        list-style-image: url(../images/bent_arrow2.png);   
+}
+
+/* ------------------------------------------------------------------ */
+/* Fonts */
+h1, h2, h3, h4 {
+    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+}

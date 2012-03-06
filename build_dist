@@ -1,0 +1,232 @@
+#!/usr/bin/env perl
+# vim:ts=8 sw=4 sts=4 ai
+require v5.6.1;
+use strict;
+use warnings;
+
+=head1 NAME
+
+build_dist - Build the distribution.
+
+=head1 VERSION
+
+This describes version B<0.01> of build_dist.
+
+=cut
+
+our $VERSION = '0.01';
+
+=head1 SYNOPSIS
+
+build_dist --help | --manpage | --version
+
+build_dist [ --release | --bump ] file
+
+=head1 DESCRIPTION
+
+Build the distribution.
+Automatically change versions and make commits.
+
+=head1 OPTIONS
+
+=over
+
+=item --bump
+
+Bump the version (done during --release also)
+
+=item --help
+
+Print help message and exit.
+
+=item --manpage
+
+Print the full help documentation (manual page) and exit.
+
+=item --release
+
+Build a release.
+
+=item --verbose
+
+Print informational messages.
+
+=item --version
+
+Print version information and exit.
+
+=back
+
+=head1 REQUIRES
+
+    Getopt::Long
+    Pod::Usage
+    Getopt::ArgvFile
+    Module::DevAid
+
+=head1 SEE ALSO
+
+perl(1)
+Getopt::Long
+Getopt::ArgvFile
+Pod::Usage
+
+=cut
+
+use Getopt::Long 2.34;
+use Getopt::ArgvFile qw(argvFile);
+use Pod::Usage;
+use Module::DevAid;
+
+our @VERSION_BUMP = qw(bonny.php README.wiki);
+
+#========================================================
+# Subroutines
+
+sub init_data ($) {
+    my $data_ref = shift;
+
+    $data_ref->{manpage} = 0;
+    $data_ref->{verbose} = 0;
+} # init_data
+
+sub process_args ($) {
+    my $data_ref = shift;
+
+    my $ok = 1;
+
+    argvFile(home=>1,current=>1,startupFilename=>'.build_distrc');
+
+    #pod2usage(2) unless @ARGV;
+
+    my $op = new Getopt::Long::Parser;
+    $op->configure(qw(auto_version auto_help));
+    $op->getoptions($data_ref,
+	       'verbose!',
+	       'manpage',
+	       'release',
+	       'bump',
+	      ) or pod2usage(2);
+
+    if ($data_ref->{'manpage'})
+    {
+	pod2usage({ -message => "$0 version $VERSION",
+		    -exitval => 0,
+		    -verbose => 2,
+	    });
+    }
+
+} # process_args
+
+sub my_version_bump {
+    my $version = shift;
+
+    # change the version in README.wiki
+    my $command;
+    $command = 'perl -pi -e "s/Version: .+/Version: ' . $version . '/" '
+	. 'README.wiki';
+    print STDERR $command, "\n";
+    system($command);
+
+    $command = 'perl -pi -e "/SkinVersion\s+=/ && s/SkinVersion\s+=\s*.*'
+     . "/SkinVersion = '$version';/" . '" '
+	. 'bonny.php';
+    print STDERR $command, "\n";
+    system($command);
+    print STDERR "bumping ", join(' ', @VERSION_BUMP), " to version $version\n";
+} # my_version_bump
+
+#========================================================
+# Main
+
+MAIN: {
+    my %data = ();
+
+    init_data(\%data);
+    process_args(\%data);
+    my $da = Module::DevAid->new(
+	dist_name => 'bonny',
+	modules=>[],
+	scripts=>[],
+	gen_readme=>0,
+	gen_todo=>0,
+	version_bump_code=>\&my_version_bump,
+	version_bump_files=>\@VERSION_BUMP,
+    );
+    if ($data{bump})
+    {
+	my $version = $da->get_new_version();
+	$da->version_bump($version, 0);
+    }
+    elsif ($data{release})
+    {
+	$da->darcs_release();
+    }
+    else {
+	my $command = shift;
+SWITCH: for (1) {
+	    ($command =~ /^DUMP$/i) && do {
+		print Data::Dumper->Dump([$da],[qw(Module::DevAid)]);
+		last;
+	    };
+	    ($command =~ /^README$/i) && do {
+		print $da->get_readme_content();
+		last;
+	    };
+	    ($command =~ /^TODO$/i) && do {
+		print $da->get_todo_content();
+		last;
+	    };
+	    ($command =~ /^CHANGES$/i) && do {
+		my $old_version = $da->get_old_version();
+		my $version = $da->get_new_version();
+		print $da->get_changes_content($old_version, $version);
+		last;
+	    };
+	    ($command =~ /^LIST$/i) && do {
+		my $old_version = $da->get_old_version();
+		print $da->get_new_changes($old_version);
+		last;
+	    };
+	    ($command =~ /^VERSION$/i) && do {
+		my $version = $da->get_new_version();
+		$da->version_bump($version);
+		last;
+	    };
+	    ($command =~ /^RELEASE$/i) && do {
+		$da->darcs_release();
+		last;
+	    };
+	}
+    }
+}
+
+=head1 BUGS
+
+Please report any bugs or feature requests to the author.
+
+=head1 AUTHOR
+
+    Kathryn Andersen
+    http://www.katspace.org
+
+=head1 COPYRIGHT AND LICENCE
+
+Copyright (c) 2006 by Kathryn Andersen
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+=cut
+
+__END__

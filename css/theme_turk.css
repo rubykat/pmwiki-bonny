@@ -1,0 +1,98 @@
+/* Theme for Bonny: turk */
+#wikihead,
+#wikifoot {
+	color: #000033;
+	background: url(../images/turk1.jpg) #339999;
+	border-color: #333366;
+}
+
+body.roomy #wikititle {
+	color: #000033;
+	background: url(../images/turk2.jpg) #669999;
+}
+body,
+body.snug #wikititle,
+#wikitext {
+	color: #000033;
+	background: #aaaadd;
+}
+
+#wikileft, #wikiright {
+	color: #000033;
+	background: #669999;
+}
+body.snug #wikimid,
+body.roomy #wikimid {
+	border-color: #669999;
+}
+
+body.roomy {
+	color: white;
+	background: #004444 url(../images/turk4.jpg);
+}
+
+/*------------------------------------------------*/
+/* links etc */
+a:link {
+	color: #000066;
+	background-color: transparent;
+}
+a:visited {
+	color: #660000;
+	background-color: transparent;
+}
+/*
+a:link:hover, a:visited:hover {
+	background: #ccccff;
+}
+*/
+a:link:active {
+	color: #00FF00;
+	background-color: transparent;
+}
+.sidebar .indent ul, .sidebar ul ul,
+.sidebar dl ul {
+        list-style-image: url(../images/bent_arrow.png);   
+}
+#menubar a, #menubar b {
+	border-color: #006666;
+	background: #669999;
+}
+#menubar li {
+	border-color: #006666;
+}
+#menubar b.selflink,
+#menubar span.selflink strong,
+#menubar .current a {
+	background: #aaaadd;
+	color: #660000;
+}
+.wikicmds a, div.wikicmds b.selflink {
+	border-color: #006666;
+}
+.wikicmds .loginhover {
+	background: transparent;
+	color: white;
+}
+.wikicmds .login a {
+	border: none;
+	background: transparent;
+	color: #339999;
+}
+.wikicmds .login a:hover {
+	border: white 2px solid;
+	color: #ccccff;
+	background: #006666;
+}
+#breadcrumb b.selflink,
+#wikileft b.selflink,
+#wikiright b.selflink,
+#wikibody b.selflink {
+	color: navy;
+}
+/* ------------------------------------------------------------------ */
+/* Fonts */
+h1, h2, h3, h4 {
+	font-family: Arabia, ArnoldBoecklin, Becker, Aduren, Abbey-Medium, verdana, helvetica, arial, sans-serif;
+	font-weight: normal;
+}

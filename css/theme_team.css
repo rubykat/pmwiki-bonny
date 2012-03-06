@@ -1,0 +1,120 @@
+/* Theme for Bonny: team - red, black and white */
+#wikihead,
+#wikifoot {
+	color: white;
+	background: #880000;
+	border-color: #330000;
+}
+
+body.roomy #wikititle {
+	color: #330000;
+	background: white;
+}
+
+body,
+body.snug #wikititle,
+#wikitext {
+	color: #330000;
+	background: white;
+	border-color: #110000;
+}
+
+#wikileft, #wikiright {
+	color: white;
+	background: black;
+}
+body.snug #wikimid,
+body.roomy #wikimid {
+	border-color: black;
+}
+
+body.roomy {
+	color: white;
+	background: #711c1c url(../images/red1.jpg);
+}
+
+/*------------------------------------------------*/
+/* links etc */
+a:link {
+	color: #000066;
+	background: transparent;
+}
+a:visited {
+	color: #660000;
+	background: transparent;
+}
+
+#wikihead a:link,
+#wikifoot a:link,
+#wikileft a:link,
+#wikiright a:link {
+	color: #f2aaaa;
+}
+#wikihead a:visited,
+#wikifoot a:visited,
+#wikileft a:visited,
+#wikiright a:visited {
+	color: #f2cda9;
+}
+
+#menubar a, #menubar b {
+	border-color: #550000;
+	background: #220000;
+}
+#menubar li {
+	border-color: #550000;
+}
+#menubar b.selflink,
+#menubar span.selflink strong,
+#menubar .current a {
+	background: #f2aaaa;
+	color: #000066;
+}
+.wikicmds a, .wikicmds b {
+	border-color: #661111;
+}
+div.wikicmds b.selflink {
+	color: #f2cda9;
+}
+.wikicmds .loginhover {
+	background: transparent;
+	color: black;
+}
+#wikihead .wikicmds .login a,
+#wikifoot .wikicmds .login a
+{
+	border: none;
+	background: transparent;
+	color: #880000;
+}
+#wikihead .wikicmds .login a:hover,
+#wikifoot .wikicmds .login a:hover
+{
+	border: white 2px solid;
+	color: #ffcccc;
+	background: #550000;
+}
+#breadcrumb b.selflink,
+#wikileft b.selflink,
+#wikiright b.selflink {
+	color: white;
+}
+
+.sidebar .indent ul, .sidebar ul ul,
+.sidebar dl ul {
+        list-style-image: url(../images/bent_arrow2.png);   
+}
+/* ------------------------------------------------------------------ */
+/* Fonts */
+h1, h2, h3, h4 {
+        font-family: "Comic Sans", "Comic Sans MS", verdana, helvetica, arial, sans-serif;
+}
+body {
+        font-family: verdana, helvetica, arial, sans-serif;
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.2em; }
+

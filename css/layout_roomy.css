@@ -1,0 +1,75 @@
+/***********************************************************************
+** katskin/css/layout_roomy.css
+** Roomy layout
+**
+**  Copyright 2006 Kathryn Andersen
+**  This file is part of the Bonny skin for PmWiki; you can redistribute it
+**  and/or modify it under the terms of the GNU General Public License as
+**  published by the Free Software Foundation; either version 2 of the
+**  License, or (at your option) any later version.
+***********************************************************************/
+@import url(layout_common.css);
+/* ----------------------------------------------------------------*/
+/* overall layout: three sections of the page
+   - header
+   - middle
+   - footer
+  In the header, we have the logo, the breadcrumb and the bar-menu
+  In the middle section, we have two columns:
+   - main (main_content contains the main page content)
+   - sidebar (contains side-menu)
+*/
+body {
+	padding: 0;
+	margin: 8px;
+}
+#wikihead {
+	border: solid black 1px;
+	margin-bottom: 8px;
+}
+/*-----------------------------*/
+#wikitext {
+	border: solid black 1px;
+	margin: 0;
+	padding: 0.5em;
+}
+body.left #wikitext {
+	margin-left: 8px;
+}
+body.right #wikitext {
+	margin-right: 8px;
+}
+body.trio #wikitext {
+	margin-left: 8px;
+	margin-right: 8px;
+}
+#wikititle {
+	border: solid black 1px;
+	text-align: center;
+	margin: 0;
+	margin-bottom: 8px;
+}
+body.left #wikititle {
+	margin-left: 8px;
+}
+body.right #wikititle {
+	margin-right: 8px;
+}
+body.trio #wikititle {
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+#wikititle h1 {
+	margin: 0.3em;
+}
+
+
+/*=============================*/
+/* footer */
+#wikifoot {
+	margin: 0;
+	margin-top: 8px;
+	border: solid black 1px;
+}
+

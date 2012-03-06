@@ -1,0 +1,11 @@
+version=pmwiki-2.1.10 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.4) Gecko/20060609 Firefox/1.5.0.4
+author=Kathryn Andersen
+csum=just the group list -- the condition is in the template now
+ctime=1150945675
+host=127.0.0.2
+name=Site.MenuBar
+rev=4
+targets=
+text=(:pagelist fmt=#group order=group:)
+time=1151633015

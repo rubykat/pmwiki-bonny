@@ -1,0 +1,97 @@
+/* Theme for Bonny: vioblue */
+#wikihead,
+#wikifoot {
+	color: #000033;
+	background: url(../images/vioblue2.jpg) #694b88;
+	border-color: #472966;
+}
+
+body.roomy #wikititle {
+	color: #000033;
+	background: url(../images/gblue6.jpg) #aaaadd;
+}
+
+body,
+body.snug #wikititle,
+#wikitext {
+	color: #000033;
+	border-color: navy;
+	background: #aaaadd;
+}
+
+#wikileft, #wikiright {
+	color: #000033;
+	background: #967acc;
+}
+body.snug #wikimid,
+body.roomy #wikimid {
+	border-color: #967acc;
+}
+
+body.roomy {
+	color: white;
+	background: navy url(../images/vioblue3.jpg);
+}
+
+/*------------------------------------------------*/
+/* links etc */
+a:link {
+	color: #000066;
+	background-color: transparent;
+}
+a:visited {
+	color: #660000;
+	background-color: transparent;
+}
+a:link:hover, a:visited:hover {
+	background: #ccccff;
+}
+a:link:active {
+	color: #00FF00;
+	background-color: transparent;
+}
+.sidebar .indent ul, .sidebar ul ul,
+.sidebar dl ul {
+        list-style-image: url(../images/bent_arrow.png);   
+}
+#menubar a, #menubar b {
+	border-color: #472966;
+	background: #967acc;
+}
+#menubar li {
+	border-color: #6b3e99;
+}
+#menubar b.selflink,
+#menubar span.selflink strong,
+#menubar .current a {
+	background: #aaaadd;
+	color: #660000;
+}
+.wikicmds a, div.wikicmds b.selflink {
+	border-color: #472966;
+}
+.wikicmds .loginhover {
+	background: transparent;
+	color: white;
+}
+.wikicmds .login a {
+	border: none;
+	background: transparent;
+	color: #694b88;
+}
+.wikicmds .login a:hover {
+	border: white 2px solid;
+	color: #ccccff;
+	background: #472966;
+}
+#breadcrumb b.selflink,
+#wikileft b.selflink,
+#wikiright b.selflink,
+#wikibody b.selflink {
+	color: navy;
+}
+/* ------------------------------------------------------------------ */
+/* Fonts */
+h1, h2, h3, h4 {
+	font-family: Hadley, RitzyRemix, Bosanova, Grenadier, Copasetic, Penguin, Andes, CoventryGarden, verdana, helvetica, arial, sans-serif;
+}

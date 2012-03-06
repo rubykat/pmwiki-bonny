@@ -1,0 +1,31 @@
+/***********************************************************************
+** Snug layout
+**
+**  Copyright 2006 Kathryn Andersen
+**  This file is part of the Bonny skin for PmWiki; you can redistribute it
+**  and/or modify it under the terms of the GNU General Public License as
+**  published by the Free Software Foundation; either version 2 of the
+**  License, or (at your option) any later version.
+***********************************************************************/
+@import url(layout_common.css);
+/* ----------------------------------------------------------------*/
+body {
+	/* everything flush to the edges */
+	margin: 0;
+}
+/*-----------------------------*/
+#wikitext, #wikititle {
+	padding-left: 7px;
+	padding-right: 7px;
+}
+#wikitext {
+	padding-bottom: 7px;
+}
+
+#wikihead {
+	border-bottom: solid black 1px;
+}
+#wikifoot {
+	border-top: solid black 1px;
+}
+

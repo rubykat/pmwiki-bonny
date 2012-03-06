@@ -1,0 +1,32 @@
+/* add stuff for MSIE */
+#menubar {
+    float: none;
+}
+#wikimid, #wikifoot {
+	overflow: hidden;
+	height: 1%;
+}
+body.trio #wikimid,
+body.left #wikimid,
+body.right #wikimid {
+      display: inline;
+}
+
+#wikitext pre.escaped {
+	white-space: pre;
+	word-wrap: break-word;
+}
+#wikitext code.escaped {
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+#wikifoot .wikicmds {
+	float: none;
+}
+#wikifoot div.vspace {
+	display: none;
+}
+div.wikicmds .loginhover ul {
+	display: block;
+}

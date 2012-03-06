@@ -1,0 +1,10 @@
+version=pmwiki-2.2.0-beta34 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.1) Gecko/20070205 BonEcho/2.0.0.1
+author=Kathryn Andersen
+csum=use DefaultGroup's group name
+ctime=1174015446
+host=127.0.0.2
+name=Site.BreadCrumb
+rev=12
+targets=Main.HomePage,Site.Site
+text=(:if !group {$DefaultGroup} ) :)[[{$DefaultGroup}]] > (:ifend:)\%0a(:if !equal "{*$BreadCrumb}" "":){*$BreadCrumb}(:ifend:)%0a(:if equal "{*$BreadCrumb}" "":)[[{*$Group}]] (:ifend:)\%0a(:if ( equal "{*$BreadCrumb}" "" ) and ( !name {*$Group} and !name {$DefaultName} ) :) > [[{*$Name}]](:ifend:)%0a

@@ -1,0 +1,132 @@
+/* Theme for Bonny: matrix */
+#wikihead,
+#wikifoot {
+	color: white;
+	background: black url(../images/matrix2.jpg);
+	border-color: #005500;
+}
+
+body.roomy #wikititle {
+	color: #003300;
+	background: url(../images/matrix3.jpg) #aaf2aa;
+}
+
+body,
+body.snug #wikititle,
+#wikitext {
+	color: #003300;
+	background: #aaf2aa;
+	border-color: #001100;
+}
+
+#wikileft, #wikiright {
+	color: white;
+	background: #001100;
+}
+body.snug #wikimid,
+body.roomy #wikimid {
+	border-color: #001100;
+}
+
+body.roomy {
+	color: white;
+	background: #116611 url(../images/matrix4.jpg);
+}
+
+/*------------------------------------------------*/
+/* links etc */
+a:link {
+	color: #000066;
+	background: transparent;
+}
+a:visited {
+	color: #660000;
+	background: transparent;
+}
+a:link:hover, a:visited:hover {
+	background: #ccffcc;
+}
+
+#wikihead a:link, #wikifoot a:link, #wikileft a:link, #wikiright a:link {
+	color: #aaf2aa;
+}
+#wikihead a:visited, #wikifoot a:visited, #wikileft a:visited, #wikiright a:visited {
+	color: #f2cda9;
+}
+#wikihead a:link:hover, #wikifoot a:link:hover, #wikileft a:link:hover, #wikiright a:link:hover {
+	color: black;
+	background: #aaf2aa;
+}
+#wikihead a:visited:hover, #wikifoot a:visited:hover, #wikileft a:visited:hover, #wikiright a:visited:hover {
+	color: #330000;
+	background: #aaf2aa;
+}
+
+#menubar a, #menubar b {
+	border-color: #005500;
+	background: #001100;
+}
+#menubar li {
+	border-color: #005500;
+}
+#menubar b.selflink,
+#menubar span.selflink strong,
+#menubar .current a {
+	background: #aaf2aa;
+	color: #000066;
+}
+.wikicmds a, .wikicmds b {
+	border-color: #116611;
+}
+div.wikicmds b.selflink {
+	color: #f2cda9;
+}
+.wikicmds .loginhover {
+	background: transparent;
+	color: black;
+}
+#wikihead .wikicmds .login a,
+#wikifoot .wikicmds .login a
+{
+	border: none;
+	background: transparent;
+	color: black;
+}
+#wikihead .wikicmds .login a:hover,
+#wikifoot .wikicmds .login a:hover
+{
+	border: white 2px solid;
+	color: #ccffcc;
+	background: #005500;
+}
+#breadcrumb b.selflink,
+#wikileft b.selflink,
+#wikiright b.selflink {
+	color: white;
+}
+
+.sidebar .indent ul, .sidebar ul ul,
+.sidebar dl ul {
+        list-style-image: url(../images/bent_arrow2.png);   
+}
+/* ------------------------------------------------------------------ */
+/* Fonts */
+h1, h2, h3, h4 {
+        font-family: Plasmatic, LarabieFont "Bionic Type", CircuitBoredNF, "I am simplified", Gizmo, silicon, Aero, Keypunch, sillycon, "Homo Novis", "sonic empire", harpoon, LiquidCrystal, verdana, helvetica, arial, sans-serif;
+}
+h1 { font-size: 2em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.2em; }
+
+/* ------------------------------------------------------------------ */
+/* Other */
+pre {
+    border: 1px solid #99f299;
+    background: #bbf2bb;
+    color: black;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-left: 1em;
+}

@@ -1,0 +1,10 @@
+version=pmwiki-2.2.0-beta2 ordered=1 urlencoded=1
+agent=Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20060922 Firefox/1.5.0.7
+author=Kathryn Andersen
+csum=
+ctime=1151277745
+host=127.0.0.2
+name=Site.PageActionsCMS
+rev=15
+targets=Site.Bonny-Configure,Site.PageActionsCMS
+text=(:if !enabled BonnyCMS:)%0a(:include {*$Group}.PageActions {$SiteGroup}.PageActions:)%0a* [[{$SiteGroup}/Bonny-Configure|configure skin]]%0a(:if ( enabled BonnyCMS and enabled BonnyCMSHover and !enabled AuthPw ) :)%0a>>class=loginhover%3c%3c%0a.%0a* %25item accesskey='l'%25[[{*$FullName}?action=login | Login ]]%0a>>%3c%3c%0a(:if ( enabled BonnyCMS and !enabled BonnyCMSHover and !enabled AuthPw ) :)%0a>>class=login%3c%3c%0a* %25item accesskey='l'%25[[{*$FullName}?action=login | Login ]]%0a>>%3c%3c%0a(:if ( enabled BonnyCMS and enabled AuthPw ) :)%0a>>class=editcmds%3c%3c%0a(:include {*$Group}.PageActions {$SiteGroup}.PageActions:)%0a* [[{$SiteGroup}/Bonny-Configure|skin config]]%0a* [[{*$FullName}?action=logout|Logout]]%0a>>%3c%3c%0a(:ifend:)%0a

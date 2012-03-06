@@ -1,0 +1,80 @@
+Revision history for bonny
+==========================
+
+0.06 Sun 17 June 2007
+---------------------
+
+  * (17 Jun 2007) fixes for Konqueror
+
+0.0501 Tue 08 May 2007
+----------------------
+
+  * (8 May 2007) little fix
+  	had a problem with the release tagging; fixed.
+
+0.05 Tue 08 May 2007
+--------------------
+
+Tue May  8 09:42:38 EST 2007  perlkat@katspace.org
+  * custom themes
+  	* Changes to make it easier to add custom themes.
+  	* Tweaks of some of the themes.
+
+0.04 Tue 08 May 2007
+--------------------
+
+  * (8 May 2007) custom themes
+  	* (8 May 2007) Changes to make it easier to add custom themes.
+  	* (8 May 2007) Tweaks of some of the themes.
+
+0.04 Sun 25 March 2007
+----------------------
+
+  * (25 Mar 2007) cluster update
+  	Changes for compatibility with Cluster 2007-03-25
+
+0.03 Sun 18 March 2007
+----------------------
+
+  * (18 Mar 2007) wikilib oops
+  	- oops, forgot to include the updated Config and RightBar!
+
+0.02 Sun 18 March 2007
+----------------------
+
+  * (18 Mar 2007) tricolore
+  	- added new "tricolore" theme, Blue White and Red (named after the French Tricolore, though the same colours get used in the UK, US, Australian, New Zealand and other flags)
+
+  * (18 Mar 2007) IE fixes
+
+  * (18 Mar 2007) team theme
+  	- added "team" theme, which is red, black, and white (as requested)
+
+0.0101 Fri 16 March 2007
+------------------------
+
+  * (16 Mar 2007) tweak to release process
+
+0.01 Fri 16 March 2007
+----------------------
+
+  * (16 Mar 2007) iron theme
+  	- added iron theme (based on A Bit Modern)
+  	- updating docs; final pass before release
+
+  * (15 Mar 2007) improvements for Cluster
+  	- added $RightBar
+  	- checks for $BreadCrumb variable in Site.BreadCrumb
+
+  * (15 Mar 2007) adjustments for release
+
+  * (15 Mar 2007) tweaks
+  	- removed the error message when there are no extras
+  	- wikicmds buttons now inset when active (like proper buttons)
+
+  * (6 Mar 2007) menu-bar tags
+  	The menu-bar tags look better with a line under them, when
+  there is more than one line of them.  Since one cannot test for that,
+  then we'll have a line under them all the time.
+
+  * (6 Mar 2007) initial checkin

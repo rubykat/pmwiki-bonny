@@ -1,0 +1,63 @@
+<!DOCTYPE html 
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title>$HTMLTitleFmt</title>
+  <link rel='stylesheet' href='$SkinDirUrl/css/$LayoutCss' type='text/css' />
+  <link rel='stylesheet' href='$SkinDirUrl/css/$ThemeCss' type='text/css' />
+  <!--[if IE ]>
+  <link href="$SkinDirUrl/css/layout_ie.css" rel="stylesheet" type="text/css" media="screen" />
+  <![endif]-->
+<!--HTMLHeader-->
+</head>
+<body class='$BodyClass'>
+<!--PageHeaderFmt-->
+<!-- noindex -->
+  <div id='wikihead'>
+    <div id='breadcrumb'><!--wiki:{$Group}.BreadCrumb {$SiteGroup}.BreadCrumb--></div>
+    <div class='wikicmds'><!--wiki:{$Group}.PageActionsCMS {$SiteGroup}.PageActionsCMS {$Group}.PageActions {$SiteGroup}.PageActions--></div>
+    <div id='wikilogo'><!--markup:(:if enabled BonnyLogoLink:)[[Path:{$BonnyLogoLink}|Path:{$PageLogoUrl}]](:if !enabled BonnyLogoLink:)[[Path:{$ScriptUrl}|Path:{$PageLogoUrl}]](:ifend:)--></div>
+   <div id='menubar'><!--markup:(:if enabled BonnyMenuBar:)(:include {$ClusterMenuBar} {$Group}.MenuBar {$SiteGroup}.MenuBar:)(:ifend:)--></div>
+  </div>
+<!-- index -->
+<!--/PageHeaderFmt-->
+  <div id='wikimid'>
+      <div id='wikibody'>
+<!--PageTitleFmt-->
+        <div id='wikititle'>
+        $TitleFmt
+	</div>
+<!--PageText-->
+      </div>
+<!--PageLeftFmt-->
+<!-- noindex -->
+      <div id='wikileft'>
+        <div class="sidebar">
+        <!--markup:(:if enabled BonnyIncludeSearch:)(:searchbox:)(:ifend:)-->
+        <!--wiki:{$ClusterSideBar} {$Group}.SideBar {$SiteGroup}.SideBar-->
+        </div>
+      </div>
+<!--/PageLeftFmt-->
+<!--PageRightFmt-->
+      <div id='wikiright'>
+        <div class="sidebar">
+        <!--wiki:{$ClusterRightBar} {$Group}.RightBar {$SiteGroup}.RightBar-->
+        </div>
+      </div>
+<!--/PageRightFmt-->
+    </div>
+<!--PageFooterFmt-->
+  <div id='wikifoot'>
+    <div class='footnav'>
+      <!--markup:(:if enabled BonnyIncludeSearch:)[[{$SiteGroup}/Search]] (:if ( !enabled BonnyCMS or ( enabled BonnyCMS and enabled AuthPw ) ) :)[[{$Group}/RecentChanges]] [[{$SiteGroup}/AllRecentChanges]](:if:)-->
+    </div>
+    <div class='lastmod'>$[Page last modified on {$LastModified}]</div>
+    <div class='wikicmds'><!--wiki:{$Group}.PageActionsCMS {$SiteGroup}.PageActionsCMS {$Group}.PageActions {$SiteGroup}.PageActions-->
+    </div>
+  </div>
+<!--/PageFooterFmt-->
+<!--HTMLFooter-->
+<!-- index -->
+</body>
+</html>

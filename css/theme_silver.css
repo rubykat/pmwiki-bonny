@@ -1,0 +1,82 @@
+/* Theme for Bonny: silver */
+#wikihead,
+#wikifoot {
+	color: black;
+	border-color: black;
+	background: url(../images/silver1.jpg) repeat-x #eeeeee;
+}
+body.roomy #wikititle {
+	color: black;
+	background: url(../images/silver2.jpg) repeat-y #eeeeee;
+}
+
+body,
+body.snug #wikititle,
+#wikitext {
+	color: #333333;
+	background: #eeeeee;
+}
+
+#wikileft, #wikiright {
+	color: black;
+	background: #cccccc url(../images/silver4.jpg) repeat-x;
+}
+#wikibody {
+	border-color: #cccccc;
+}
+
+body.roomy {
+	color: white;
+	background: black url(../images/silver3.jpg);
+}
+
+/*------------------------------------------------*/
+/* links etc */
+a:link {
+	color: #000099;
+	background: transparent;
+}
+a:visited {
+	color: #990099;
+	background: transparent;
+}
+.sidebar .indent ul, .sidebar ul ul,
+.sidebar dl ul {
+        list-style-image: url(../images/bent_arrow.png);   
+}
+#menubar a, #menubar b {
+	border-color: black;
+	background: #cccccc;
+}
+#menubar li {
+	border-color: #666666;
+}
+#menubar b.selflink,
+#menubar span.selflink strong,
+#menubar .current a {
+	background: #eeeeee;
+	color: black;
+}
+.wikicmds a {
+	border-color: black;
+}
+.wikicmds .loginhover {
+	background: transparent;
+	color: white;
+}
+.wikicmds .login a {
+	border: none;
+	background: transparent;
+	color: #eeeeee;
+}
+.wikicmds .login a:hover {
+	border: white 2px solid;
+	color: #9999ff;
+	background: #333333;
+}
+#breadcrumb b.selflink,
+#wikileft b.selflink,
+#wikiright b.selflink,
+#wikibody b.selflink {
+	color: black;
+}
