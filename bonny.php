@@ -9,7 +9,7 @@
  * Version
  */
 global $FmtPV;
-$SkinVersion = '0.06';
+$SkinVersion = '2015-06-25';
 $FmtPV['$SkinName'] = "'Bonny'";
 $FmtPV['$SkinVersion'] = "'$SkinVersion'";
 
@@ -53,17 +53,20 @@ if (function_exists('ClusterPageName')) {
  * Markup
  */
 /* (:noleft:) redefinition */
-Markup('noleft','directives','/\\(:noleft:\\)/e', "NoLeftBar()"); 
+Markup('noleft','directives','/\\(:noleft:\\)/', 'NoLeftBar');
 /* (:noright:) redefinition */
-Markup('noright','directives','/\\(:noright:\\)/e', "NoRightBar()"); 
+Markup('noright','directives','/\\(:noright:\\)/', 'NoRightBar');
 
 /* external link markup */
 global $IMapLinkFmt;
 $IMapLinkFmt['http:'] = 
   "<a class='externallink' href='\$LinkUrl'>\$LinkText</a>";
 
-Markup('bonny', '<split', '/\\(:bonny\\s+(\w+)\\s?(.*?):\\)/i',
-  BonnyMarkup(\$pagename, PSS('$1'), PSS('$2')));
+Markup('bonny', '<split', '/\\(:bonny\\s+(\w+)\\s?(.*?):\\)/i', 'BonnyMarkupHelper');
+function BonnyMarkupHelper($m) {
+    global $pagename;
+    return BonnyMarkup($pagename, $m[1], $m[2]);
+}
 
 /* ============================================================== */
 /*
