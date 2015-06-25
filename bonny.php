@@ -62,8 +62,8 @@ global $IMapLinkFmt;
 $IMapLinkFmt['http:'] = 
   "<a class='externallink' href='\$LinkUrl'>\$LinkText</a>";
 
-Markup('bonny', '<split', '/\\(:bonny\\s+(\w+)\\s?(.*?):\\)/ei',
-  "BonnyMarkup(\$pagename, PSS('$1'), PSS('$2'))");
+Markup('bonny', '<split', '/\\(:bonny\\s+(\w+)\\s?(.*?):\\)/i',
+  BonnyMarkup(\$pagename, PSS('$1'), PSS('$2')));
 
 /* ============================================================== */
 /*
